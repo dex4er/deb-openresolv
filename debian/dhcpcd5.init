@@ -1,0 +1,60 @@
+#!/bin/sh
+#
+### BEGIN INIT INFO
+# Provides:          dhcpcd
+# Required-Start:    $local_fs
+# Required-Stop:     $local_fs
+# Should-Start: 
+# Should-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: IPv4 DHCP client with IPv4LL support
+# Description:
+### END INIT INFO
+
+PATH=/sbin:/bin
+
+DAEMON=/sbin/dhcpcd
+NAME=dhcpcd
+PIDFILE=/var/run/$NAME.pid
+
+test -x $DAEMON || exit 0
+
+. /lib/lsb/init-functions
+
+# Include defaults if available
+if [ -f /etc/default/$NAME ] ; then
+    . /etc/default/$NAME
+fi
+
+
+case "$1" in
+  start)
+	dhcpcd
+        ;;
+  stop)
+	dhcpcd -x
+	;;
+  force-stop)
+	dhcpcd -x
+	sleep 2
+	killall -9 dhcpcd
+        ;;
+  restart|force-reload)
+	dhcpcd -x
+	dhcpcd
+        ;;
+  reload)
+	dhcpcd -n
+        ;;
+  status)
+        status_of_proc -p "$PIDFILE" "$DAEMON" "$NAME" || exit $?
+        ;;
+  *)
+        N=/etc/init.d/$DAEMON
+        echo "Usage: $N {start|stop|force-stop|restart|force-reload|status}" >&2
+        exit 1
+        ;;
+esac
+
+exit 0

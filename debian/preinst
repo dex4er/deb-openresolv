@@ -1,0 +1,6 @@
+#!/bin/sh -e
+# Remove clutter left by older dhcpcd packages
+
+rm -rf /etc/dhcpc /etc/dhcpcd.sh /etc/default/dhcpcd
+
+#DEBHELPER#

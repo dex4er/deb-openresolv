@@ -1,0 +1,5 @@
+openresolv (3.3.6-1) unstable; urgency=low
+
+  * Initial upload to Debian (closes #595081)
+
+ -- Roy Marples <roy@marples.name>  Thu, 23 Sep 2010 10:06:38 +0100
