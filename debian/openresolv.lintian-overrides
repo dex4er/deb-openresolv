@@ -5,4 +5,5 @@
 openresolv: script-not-executable ./lib/resolvconf/libc
 openresolv: script-not-executable ./lib/resolvconf/dnsmasq
 openresolv: script-not-executable ./lib/resolvconf/named
+openresolv: script-not-executable ./lib/resolvconf/pdnsd
 openresolv: script-not-executable ./lib/resolvconf/unbound

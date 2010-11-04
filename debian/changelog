@@ -1,5 +1,14 @@
+openresolv (3.4.0-1) unstable; urgency=low
+
+  * New upstream release
+  * Added pdnsd support (closes: #601390)
+  * Added abiliity to append search domains (closes: #601681)
+  * Added hooks for ifupdown, ppp and dhclient (closes: #601312)
+
+ -- Roy Marples <roy@marples.name>  Thu, 4 Nov 2010 19:43:33 +0100
+
 openresolv (3.3.6-1) unstable; urgency=low
 
-  * Initial upload to Debian (closes #595081)
+  * Initial upload to Debian (closes: #595081)
 
  -- Roy Marples <roy@marples.name>  Thu, 23 Sep 2010 10:06:38 +0100

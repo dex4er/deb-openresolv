@@ -8,9 +8,12 @@ Homepage: http://roy.marples.name/projects/openresolv
 
 Package: openresolv
 Provides: resolvconf
-Architecture: any
+Architecture: all
 Depends: ${misc:Depends}
 Conflicts: resolvconf
 Description: management framework for resolv.conf
  Allows multiple daemons to manage resolv.conf and configures
  local resolvers such as dnsmasq and unbound.
+ .
+ This package may require some manual configuration.
+ Please read resolvconf(8) and resolvconf.conf(5) for detailed instructions.
