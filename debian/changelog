@@ -1,3 +1,26 @@
+openresolv (3.4.4-2) unstable; urgency=low
+
+  * Support dhclient IPv6, thanks to Geoffrey Sisson (closes: #635479)
+  * Add a note about setting name_servers= in resolvconf.conf on
+    Debian systems to README.Debian
+  * Updated Standards-Version to 3.9.2 (no changes needed)
+
+ -- Roy Marples <roy@marples.name>  Mon, 1 Aug 2011 19:59:34 +0100
+
+openresolv (3.4.4-1) unstable; urgency=low
+
+  * New upstream release
+  * Patch /etc/resolvconf.conf to mirror the default locations
+    for the resolvers dnsmasq, pdnsd and unbound (closes: #630688)
+
+ -- Roy Marples <roy@marples.name>  Mon, 25 Jul 2011 21:30:52 +0100
+
+openresolv (3.4.2-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Roy Marples <roy@marples.name>  Mon, 13 Jun 2011 11:46:37 +0100
+
 openresolv (3.4.0-1) unstable; urgency=low
 
   * New upstream release
@@ -5,7 +28,7 @@ openresolv (3.4.0-1) unstable; urgency=low
   * Added abiliity to append search domains (closes: #601681)
   * Added hooks for ifupdown, ppp and dhclient (closes: #601312)
 
- -- Roy Marples <roy@marples.name>  Thu, 4 Nov 2010 19:43:33 +0100
+ -- Roy Marples <roy@marples.name>  Thu, 04 Nov 2010 19:43:33 +0100
 
 openresolv (3.3.6-1) unstable; urgency=low
 

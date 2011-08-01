@@ -3,7 +3,7 @@ Section: net
 Priority: optional
 Maintainer: Roy Marples <roy@marples.name>
 Build-Depends: debhelper (>= 7.0.50~)
-Standards-Version: 3.8.4
+Standards-Version: 3.9.2
 Homepage: http://roy.marples.name/projects/openresolv
 
 Package: openresolv

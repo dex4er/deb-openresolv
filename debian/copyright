@@ -1,9 +1,10 @@
-Format-Specification: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&rev=135
-Maintainer: Roy Marples <roy@marples.name>
+Format: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&rev=174
+Upstream-Contact: Roy Marples <roy@marples.name>
 Source: http://roy.marples.name/projects/openresolv
 
-Copyright: 2007-2010 Roy Marples <roy@marples.name>
-License: BSD-2
+Files: *
+Copyright: 2007-2011 Roy Marples <roy@marples.name>
+License: BSD-2-clause
     Redistribution and use in source and binary forms, with or without
     modification, are permitted provided that the following conditions
     are met:
