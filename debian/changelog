@@ -1,3 +1,12 @@
+openresolv (3.5.2-1) unstable; urgency=low
+
+  * New upstream release
+  * Return 0 for subscribers whose init script do not exist (closes: 659760)
+  * Support sortlist in our resolvconf hook (closes: 637285)
+  * Updated Standards-Version to 3.9.3 (no changes needed)
+
+ -- Roy Marples <roy@marples.name>  Fri, 06 Apr 2012 16:03:03 +0100
+
 openresolv (3.4.4-2) unstable; urgency=low
 
   * Support dhclient IPv6, thanks to Geoffrey Sisson (closes: #635479)
