@@ -1,3 +1,21 @@
+openresolv (3.7.0-1) unstable; urgency=medium
+ 
+  * QA upload.
+  * New upstream release. (Closes: #724105).
+  * Update DH level to 9
+  * debian/copyright updated.
+  * debian/control:
+      - bumped Standards-Version to 3.9.6.
+      - Maintainer field updated.
+      - Homepage field updated.
+      - Added Vcs* fields.
+      - Architecture: any.
+  * debian/patches: created resolvconf-conf-5-spell.patch.
+  * debian/rules: fixed path to /etc/dhcp.
+  * debian/watch updated.
+
+ -- Herbert Parentes Fortes Neto <hpfn@ig.com.br>  Tue, 12 May 2015 15:31:26 -0300
+
 openresolv (3.5.2-1) unstable; urgency=low
 
   * New upstream release

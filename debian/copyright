@@ -1,9 +1,17 @@
-Format: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&rev=174
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: resolvconf
 Upstream-Contact: Roy Marples <roy@marples.name>
-Source: http://roy.marples.name/projects/openresolv
+Source: http://roy.marples.name/projects/openresolv/home
 
 Files: *
-Copyright: 2007-2011 Roy Marples <roy@marples.name>
+Copyright: 2007-2015 Roy Marples <roy@marples.name>
+License: BSD-2-clause
+
+Files: debian/*
+Copyright: 2010-2012 Roy Marples <roy@marples.name> 
+           2015      Herbert Parentes Fortes Neto <hpfn@ig.com.br>
+License: BSD-2-clause
+
 License: BSD-2-clause
     Redistribution and use in source and binary forms, with or without
     modification, are permitted provided that the following conditions
@@ -25,4 +33,3 @@ License: BSD-2-clause
    LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
    OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
    SUCH DAMAGE.
-
