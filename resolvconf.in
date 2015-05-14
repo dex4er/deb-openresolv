@@ -1,5 +1,5 @@
 #!/bin/sh
-# Copyright (c) 2007-2011 Roy Marples
+# Copyright (c) 2007-2009 Roy Marples
 # All rights reserved
 
 # Redistribution and use in source and binary forms, with or without
@@ -108,12 +108,11 @@ parse_resolv()
 	# let our subscribers know about global nameservers
 	for n in $name_servers; do
 		case "$n" in
-		127.*|0.0.0.0|255.255.255.255|::1) :;;
-		*) newns="$newns${newns:+ }$n";;
+		127.*|0.0.0.0|255.255.255.255|::1) continue;;
+		*) newns="$newns${newns:+ }$n"
 		esac
 	done
 	echo "NAMESERVERS=\"$newns\""
-	echo "LOCALNAMESERVERS="
 	newns=
 
 	while read line; do
@@ -139,10 +138,7 @@ parse_resolv()
 			;;
 		"nameserver "*)
 			case "${line#* }" in
-			127.*|0.0.0.0|255.255.255.255|::1)
-				echo "LOCALNAMESERVERS=\"\$LOCALNAMESERVERS ${line#* }\""
-				continue
-				;;
+			127.*|0.0.0.0|255.255.255.255|::1) continue;;
 			esac
 			ns="$ns${line#* } "
 			;;
@@ -187,41 +183,6 @@ uniqify()
 	echo "${result# *}"
 }
 
-dirname()
-{
-	local dir= OIFS="$IFS"
-	local IFS=/
-	set -- $@
-	IFS="$OIFS"
-	if [ -n "$1" ]; then
-		printf %s .
-	else
-		shift
-	fi
-	while [ -n "$2" ]; do
-		printf "/%s" "$1"
-		shift
-	done
-	printf "\n"
-}
-
-config_mkdirs()
-{
-	local e=0 f d
-	for f; do
-		[ -n "$f" ] || continue
-		d="$(dirname "$f")"
-		if [ ! -d "$d" ]; then
-			if type install >/dev/null 2>&1; then
-				install -d "$d" || e=$?
-			else
-				mkdir "$d" || e=$?
-			fi
-		fi
-	done
-	return $e
-}
-
 list_resolv()
 {
 	[ -d "$IFACEDIR" ] || return 0
@@ -232,7 +193,7 @@ list_resolv()
 	# If we have an interface ordering list, then use that.
 	# It works by just using pathname expansion in the interface directory.
 	if [ -n "$1" ]; then
-		list="$*"
+		list="$@"
 		$force || report=true
 	else
 		cd "$IFACEDIR"
@@ -265,7 +226,7 @@ list_resolv()
 		fi
 		
 		if [ "$cmd" = i -o "$cmd" = "-i" ]; then
-			printf %s "$i "
+			printf "$i "
 		else
 			echo_resolv "$i"
 		fi
@@ -305,11 +266,10 @@ make_vars()
 	echo "DOMAINS='$newdomains'"
 	echo "SEARCH='$(uniqify $SEARCH)'"
 	echo "NAMESERVERS='$(uniqify $NAMESERVERS)'"
-	echo "LOCALNAMESERVERS='$(uniqify $LOCALNAMESERVERS)'"
 }
 
 force=false
-while getopts a:Dd:fhIilm:puv OPT; do
+while getopts a:d:fhIilm:puv OPT; do
 	case "$OPT" in
 	f) force=true;;
 	h) usage;;
@@ -320,19 +280,13 @@ while getopts a:Dd:fhIilm:puv OPT; do
 	esac
 done
 shift $(($OPTIND - 1))
-args="$iface${iface:+ }$*"
+args="$iface${iface:+ }$@"
 
 # -I inits the state dir
 if [ "$cmd" = I ]; then
 	if [ -d "$VARDIR" ]; then
 		rm -rf "$VARDIR"/*
 	fi
-	exit $?
-fi
-
-# -D ensures that the listed config file base dirs exist
-if [ "$cmd" = D ]; then
-	config_mkdirs "$@"
 	exit $?
 fi
 
@@ -409,17 +363,17 @@ fi
 
 if [ "$cmd" = a ]; then
 	# Read resolv.conf from stdin
-	resolv="$(cat)"
+	resolv="$(cat)\n"
 	# If what we are given matches what we have, then do nothing
 	if [ -e "$IFACEDIR/$iface" ]; then
-		if [ "$(echo "$resolv")" = \
+		if [ "$(printf "$resolv")" = \
 			"$(cat "$IFACEDIR/$iface")" ]
 		then
 			exit 0
 		fi
 		rm "$IFACEDIR/$iface"
 	fi
-	echo "$resolv" >"$IFACEDIR/$iface" || exit $?
+	printf "$resolv" >"$IFACEDIR/$iface" || exit $?
 	[ ! -d "$METRICDIR" ] && mkdir "$METRICDIR"
 	rm -f "$METRICDIR/"*" $iface"
 	if [ -n "$IF_METRIC" ]; then
@@ -446,7 +400,7 @@ if [ "$cmd" = a ]; then
 fi
 
 eval "$(make_vars)"
-export RESOLVCONF DOMAINS SEARCH NAMESERVERS LOCALNAMESERVERS
+export RESOLVCONF DOMAINS SEARCH NAMESERVERS
 : ${list_resolv:=list_resolv -l}
 retval=0
 for script in "$LIBEXECDIR"/*; do
@@ -454,7 +408,7 @@ for script in "$LIBEXECDIR"/*; do
 		if [ -x "$script" ]; then
 			"$script" "$cmd" "$iface"
 		else
-			(set -- "$cmd" "$iface"; . "$script")
+			(. "$script" "$cmd" "$iface")
 		fi
 		retval=$(($retval + $?))
 	fi
