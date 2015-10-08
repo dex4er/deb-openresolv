@@ -1,0 +1,16 @@
+Description: Fixes spell
+Author: Herbert Parentes Fortes Neto <hpfn@ig.com.br>
+Last-Update: 2015-10-08
+Index: openresolv-3.7.1/resolvconf.8.in
+===================================================================
+--- openresolv-3.7.1.orig/resolvconf.8.in
++++ openresolv-3.7.1/resolvconf.8.in
+@@ -141,7 +141,7 @@ as possible and before
+ .Nm
+ is used to add interfaces.
+ .It Fl f
+-Ignore non existant interfaces.
++Ignore non existent interfaces.
+ Only really useful for deleting interfaces.
+ .It Fl i Ar pattern
+ List the interfaces and protocols, optionally matching

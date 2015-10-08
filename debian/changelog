@@ -1,3 +1,13 @@
+openresolv (3.7.1-1) unstable; urgency=medium
+
+  * QA upload.
+  * New upstream release.
+  * debian/patches:
+      - resolvconf-conf-5-spell.patch removed. Applied by the upstream.
+      - resolvconf.8.in-spell.patch created.
+
+ -- Herbert Parentes Fortes Neto <hpfn@ig.com.br>  Thu, 08 Oct 2015 10:00:17 -0300
+
 openresolv (3.7.0-1) unstable; urgency=medium
  
   * QA upload.
