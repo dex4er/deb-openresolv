@@ -1,3 +1,10 @@
+openresolv (3.7.2-1) unstable; urgency=low
+
+  * QA upload.
+  * New upstream release.
+
+ -- Herbert Parentes Fortes Neto <hpfn@ig.com.br>  Thu, 26 Nov 2015 15:28:42 -0200
+
 openresolv (3.7.1-1) unstable; urgency=medium
 
   * QA upload.
