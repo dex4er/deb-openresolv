@@ -1,2 +1,2 @@
-version=3
+version=4
 http://roy.marples.name/downloads/openresolv/openresolv-(\d\S+)\.tar\.(?:bz2|gz|xz)

@@ -1,0 +1,16 @@
+Description: Fixes spell.
+Author: Herbert Parentes Fortes Neto <hpfn@ig.com.br>
+Last-Update: 2016-02-28
+Index: openresolv-3.7.3/resolvconf.conf.5.in
+===================================================================
+--- openresolv-3.7.3.orig/resolvconf.conf.5.in
++++ openresolv-3.7.3/resolvconf.conf.5.in
+@@ -252,7 +252,7 @@ Example pdnsd.conf:
+ .D1 	status_ctl = on;
+ .D1 }
+ .D1 server {
+-.D1 	# A server definition is required, even if emtpy.
++.D1 	# A server definition is required, even if empty.
+ .D1 	label="empty";
+ .D1 	proxy_only=on;
+ .D1 	# file="/etc/pdnsd-resolv.conf";

@@ -1,3 +1,18 @@
+openresolv (3.7.3-1) unstable; urgency=low
+
+  * QA upload.
+  * New upstream release.
+  * debian/control:
+      - Bump Standards-Version to 3.9.7.
+      - Vcs-* fields using https.
+  * debian/copyright updated.
+  * debian/patches:
+      - resolvconf.conf.5.in-spell.patch created.
+  * debian/watch:
+      - version 4.
+
+ -- Herbert Parentes Fortes Neto <hpfn@ig.com.br>  Sun, 28 Feb 2016 14:39:40 -0300
+
 openresolv (3.7.2-1) unstable; urgency=low
 
   * QA upload.

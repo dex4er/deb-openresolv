@@ -4,12 +4,12 @@ Upstream-Contact: Roy Marples <roy@marples.name>
 Source: http://roy.marples.name/projects/openresolv/home
 
 Files: *
-Copyright: 2007-2015 Roy Marples <roy@marples.name>
+Copyright: 2007-2016 Roy Marples <roy@marples.name>
 License: BSD-2-clause
 
 Files: debian/*
 Copyright: 2010-2012 Roy Marples <roy@marples.name>
-           2015      Herbert Parentes Fortes Neto <hpfn@ig.com.br>
+           2015-2016 Herbert Parentes Fortes Neto <hpfn@ig.com.br>
 License: BSD-2-clause
 
 License: BSD-2-clause

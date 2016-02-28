@@ -3,10 +3,10 @@ Section: net
 Priority: optional
 Maintainer: Debian QA Group <packages@qa.debian.org>
 Build-Depends: debhelper (>= 9)
-Standards-Version: 3.9.6
+Standards-Version: 3.9.7
 Homepage: http://roy.marples.name/projects/openresolv/home
-Vcs-Git: git://anonscm.debian.org/collab-maint/openresolv.git
-Vcs-Browser: http://anonscm.debian.org/cgit/collab-maint/openresolv.git
+Vcs-Git: https://anonscm.debian.org/git/collab-maint/openresolv.git
+Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/openresolv.git
 
 Package: openresolv
 Provides: resolvconf
