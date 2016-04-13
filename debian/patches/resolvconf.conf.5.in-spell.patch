@@ -1,10 +1,10 @@
 Description: Fixes spell.
 Author: Herbert Parentes Fortes Neto <hpfn@ig.com.br>
 Last-Update: 2016-02-28
-Index: openresolv-3.7.3/resolvconf.conf.5.in
+Index: openresolv-3.8.0/resolvconf.conf.5.in
 ===================================================================
---- openresolv-3.7.3.orig/resolvconf.conf.5.in
-+++ openresolv-3.7.3/resolvconf.conf.5.in
+--- openresolv-3.8.0.orig/resolvconf.conf.5.in
++++ openresolv-3.8.0/resolvconf.conf.5.in
 @@ -252,7 +252,7 @@ Example pdnsd.conf:
  .D1 	status_ctl = on;
  .D1 }

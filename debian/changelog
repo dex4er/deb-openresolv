@@ -1,3 +1,16 @@
+openresolv (3.8.0-1) unstable; urgency=medium
+
+  * New upstream release
+    - Fix doesn't work with multiple domains in search,
+      they are concatenated. (Closes: #817841)
+  * New Maintainer (Closes: #770083)
+  * d/patches
+    - Update resolvconf.8.in-spell
+  * d/copyright
+    - Update copyright 
+
+ -- Jose dos Santos Junior <j.s.junior@live.com>  Wed, 13 Apr 2016 20:08:41 -0300
+
 openresolv (3.7.3-1) unstable; urgency=low
 
   * QA upload.
