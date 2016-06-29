@@ -1,3 +1,9 @@
+openresolv (3.8.0-1~bpo8+1) jessie-backports; urgency=medium
+
+  * Rebuild for jessie-backports.
+
+ -- Piotr Roszatycki <dexter@debian.org>  Wed, 29 Jun 2016 18:34:01 +0200
+
 openresolv (3.8.0-1) unstable; urgency=medium
 
   * New upstream release
